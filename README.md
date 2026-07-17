@@ -125,9 +125,8 @@ Telco Customer Churn（顧客解約）データを題材に、統計的な「推
 │   └── validation.ipynb               # テストデータを用いた包括的予測評価
 ├── README.md
 └── requirements.txt
-
+```
 ---
-
 ## 依存ライブラリ
 
 * `pymc >= 6.x`
