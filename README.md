@@ -109,20 +109,22 @@ Telco Customer Churn（顧客解約）データを題材に、統計的な「推
 ---
 
 ## リポジトリ構成
+```text
 ├── data/
-│   └── total_churn.csv              # 前処理済みの顧客データ（Telco Churn）
-├── img/                             # 評価結果の各種プロット
-│   ├── model_comparison_loo.png     # LOOによるモデル比較結果
-│   ├── cumulative_dynamic_auc.png   # 時間依存性AUC推移グラフ
-│   └── individual_survival_curves.png # 顧客個別予測生存シミュレーション
-├── models/                          # MCMCサンプリング結果の保存先
-├── notebooks/                       # 開発用・実験用Notebook
-│   ├── cox_hazard.ipynb             # Piecewise Exponential / Coxモデルの構築
-│   ├── frailty.ipynb                # 変量効果（Frailty）の追加とサンプリング
-│   └── validation.ipynb             # テストデータを用いた包括的予測評価
+│   ├── telco_churn_survival.csv       # 要約データ
+│   ├── total_churn.csv                # Payment等を含む中データ
+│   └── Telco_customer_churn.xlsx      # Churn Reason等を含む大データ（オリジナル）
+├── img/                               # 事前分布の描画や、評価結果の各種プロット
+├── models/                            # MCMCサンプリングモデル構造の保存先
+├── notebooks/                         # 開発用・実験用Notebook
+│   ├── exponential.ipynb              # 指数（Exponential）モデルの構築
+│   ├── weibull.ipynb                  # ワイブル（Weibull）モデルの構築
+│   ├── cox_hazard.ipynb               # Piecewise Exponential / Coxモデルの構築
+│   ├── frailty.ipynb                  # 変量効果（Frailty）の追加とサンプリング
+│   ├── competition_risk.ipynb         # 競合リスク（解約理由ごとのハザード）モデルの構築
+│   └── validation.ipynb               # テストデータを用いた包括的予測評価
 ├── README.md
 └── requirements.txt
-
 
 ---
 
