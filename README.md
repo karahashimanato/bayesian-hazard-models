@@ -32,8 +32,8 @@ Telco Customer Churn（顧客解約）データを題材に、統計的な「推
 | :--- | :--- | :--- |
 | **Exponential** | $h(t) = \lambda$ (時間一定) | 最もシンプル。3モデル中もっとも制約が強い。 |
 | **Weibull** | $h(t) = \frac{k}{\lambda} \left(\frac{t}{\lambda}\right)^{k-1}$ | 形状パラメータ $k$ でハザードの時間変化（増加/減少）を表現。 |
-| **Cox比例ハザード**<br>*(Piecewise Exponential)* | $h(t\|x) = h_{0, k(t)} \times \exp(x^T \beta)$ | 6ヶ月の区間ごとに自由なベースラインハザードを推定。 |
-| **Cox Frailtyモデル**<br>*(支払方法の変量効果)* | $h(t\|x) = h_{0, k(t)} \times \exp(x^T \beta) \times z_{\text{payment}}$ | 支払方法（4グループ）ごとに、平均1に制約された変量効果 $z$（Frailty）を導入。 |
+| **Cox比例ハザード**<br>*(Piecewise Exponential)* | $h(t \mid x) = h_{0, k(t)} \times \exp(x^T \beta)$ | 6ヶ月の区間ごとに自由なベースラインハザードを推定。 |
+| **Cox Frailtyモデル**<br>*(支払方法の変量効果)* | $h(t \mid x) = h_{0, k(t)} \times \exp(x^T \beta) \times z_{\text{payment}}$ | 支払方法（4グループ）ごとに、平均1に制約された変量効果 $z$（Frailty）を導入。 |
 
 * ※いずれも尤度は `pm.Potential` や `pm.Deterministic` を用いて、右側打ち切りを考慮した統一対数尤度 $event_i \log h(t_i) + \log S(t_i)$ を直接実装。
 
